@@ -11,6 +11,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
     "body-parser": "^1.19.0",
+    "heroes-talents": "git+https://git@github.com/heroespatchnotes/heroes-talents.git",
     "mysql": "^2.18.1"
   }
 }
