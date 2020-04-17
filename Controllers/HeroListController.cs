@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace Heroes.Controllers
 {
@@ -26,19 +25,9 @@ namespace Heroes.Controllers
                 var cmd = new MySqlCommand(query, dbCon.Connection);
                 var reader = cmd.ExecuteReader();
 
-                var client = new HttpClient();
                 while (reader.Read())
                 {
-
                     var heroIconStringFormat = string.Format("http://s3.hotsapi.net/img/heroes/92x93/{0}.png", reader["short_name"].ToString());
-                    //var heroIconUrl = new Uri(heroIconStringFormat);
-
-                    //var response = await client.GetAsync(heroIconStringFormat);
-                    //var heroIcon = "";
-                    //if (response.IsSuccessStatusCode)
-                    //{
-                    //    heroIcon = response.Content.ReadAsStringAsync().Result;
-                    //}
 
                     var hero = new Hero()
                     {
@@ -58,7 +47,7 @@ namespace Heroes.Controllers
                 reader.Close();
             }
             
-            return heroes.OrderByDescending(h => h.Name).ToList();
+            return heroes.ToList();
         }
     }
 }

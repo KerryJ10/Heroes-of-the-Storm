@@ -14,7 +14,6 @@ export class FetchData extends Component {
     }
 
     static renderForecastsTable(forecasts) {
-        debugger;
         return (
             <table className='table table-striped' aria-labelledby="tabelLabel">
                 <thead>
@@ -66,8 +65,6 @@ export class FetchData extends Component {
                 'Accept': 'application/json'
             }
         });
-        //const heroes = await HeroesTalents.loadHeroJSONFiles();
-        debugger;
         const data = await response.json();
         this.setState({ forecasts: data, loading: false });
     }

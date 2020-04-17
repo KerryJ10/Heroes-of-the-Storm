@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './NavMenu.css';
 
@@ -24,7 +25,7 @@ export class NavMenu extends Component {
       return (
          <div className="sidenav">
             <h3>Heroes of the Storm</h3>
-            <a href="#" class="active">Home</a>
+            <Link to="/fetch-data">Heroes</Link>
             <a href="#">Link 1</a>
             <a href="#">Link 2</a>
             <a href="#">Link 3</a>
