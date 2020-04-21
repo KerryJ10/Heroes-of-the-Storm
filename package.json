@@ -1,17 +1,18 @@
 {
-  "name": "heroes",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.13.0",
-    "body-parser": "^1.19.0",
-    "heroes-talents": "git+https://git@github.com/heroespatchnotes/heroes-talents.git",
-    "mysql": "^2.18.1"
-  }
+	"name": "heroes",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@fortawesome/fontawesome-free": "^5.13.0",
+		"body-parser": "^1.19.0",
+		"heroes-talents": "git+https://git@github.com/heroespatchnotes/heroes-talents.git",
+		"mysql": "^2.18.1",
+		"node-sass": "^4.13.1"
+	}
 }

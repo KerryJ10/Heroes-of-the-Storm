@@ -1,0 +1,30 @@
+﻿[
+  {
+    "outputFile": "ClientApp/src/style/scss/hots-styles.css",
+    "inputFile": "ClientApp/src/style/scss/hots-styles.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/components/home.css",
+    "inputFile": "ClientApp/src/components/home.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/components/navmenu.css",
+    "inputFile": "ClientApp/src/components/navmenu.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/components/layout.css",
+    "inputFile": "ClientApp/src/components/layout.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/global.css",
+    "inputFile": "ClientApp/src/global.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/components/herolist.css",
+    "inputFile": "ClientApp/src/components/herolist.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/components/maps.css",
+    "inputFile": "ClientApp/src/components/maps.scss"
+  }
+]

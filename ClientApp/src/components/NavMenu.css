@@ -1,18 +1,28 @@
-﻿a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
+﻿/* SIDE NAV
+   ========================= */
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  background-color: #301934;
+  overflow-x: hidden; }
+  .sidenav h3 {
+    text-align: center;
+    color: #818181;
+    padding-top: 10%;
+    font-size: 24px;
+    height: 75px; }
+    .sidenav h3 a {
+      padding: 0; }
+    .sidenav h3 a:hover {
+      cursor: pointer;
+      color: #818181; }
+  .sidenav a {
+    padding: 6px 8px 6px 40px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block; }
+  .sidenav a:hover {
+    color: pink; }
