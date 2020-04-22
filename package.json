@@ -10,9 +10,14 @@
 	"license": "ISC",
 	"dependencies": {
 		"@fortawesome/fontawesome-free": "^5.13.0",
+		"@fortawesome/fontawesome-svg-core": "^1.2.28",
+		"@fortawesome/free-solid-svg-icons": "^5.13.0",
+		"@fortawesome/react-fontawesome": "^0.1.9",
 		"body-parser": "^1.19.0",
 		"heroes-talents": "git+https://git@github.com/heroespatchnotes/heroes-talents.git",
+		"moment": "^2.24.0",
 		"mysql": "^2.18.1",
-		"node-sass": "^4.13.1"
+		"node-sass": "^4.13.1",
+		"react-moment": "^0.9.7"
 	}
 }

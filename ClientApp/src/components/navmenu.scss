@@ -9,29 +9,42 @@
 	overflow-x: hidden;
 
 	h3 {
+		height: 120px;
+
+		img {
+			width: 250px;
+		}
+
 		a {
 			padding: 0;
 		}
-		a:hover{
-			cursor: pointer;
-			color: #818181;
-		}
-		text-align: center;
-		color: #818181;
-		padding-top: 10%;
-		font-size: 24px;
-		height: 75px;
+
+			a:hover {
+				cursor: pointer;
+				color: #818181;
+			}
 	}
 
 	a {
-		padding: 6px 8px 6px 40px;
+		padding: 6px 8px 6px 20px;
 		text-decoration: none;
 		font-size: 25px;
-		color: #818181;
+		color: #cfcfcf;
 		display: block;
+		font-family: 'Acme'
 	}
 
-	a:hover {
-		color: pink;
+		a:hover:not(:first-child) {
+			color: #818181;
+			background-color: #241327;
+
+			.nav-list-icon{
+				color: #818181;
+			}
+		}
+
+	.nav-list-icon{
+		color: white;
+		margin-right: 20px;
 	}
 }

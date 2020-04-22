@@ -1,9 +1,39 @@
 ﻿/* HeroList
    ========================= */
 .hero-list {
-   h1 {
-      text-align: center;
-   }
+	padding: 20px;
 
-   padding: 20px;
+	h1 {
+		text-align: center;
+	}
+
+	.hero {
+		font-size: 18px;
+		padding-bottom: 20px;
+
+		.hero-name {
+			font-family: 'Acme';
+		}
+	}
+
+	.hero-name-td {
+		width: 150px;
+		text-align: center;
+	}
+
+	.hero-type-td {
+		width: 100px;
+	}
+
+	.hero-role-td {
+		width: 100px;
+	}
+
+	.hero-name-th {
+		text-align: center;
+	}
+
+	.vertical-center {
+		line-height: 117px;
+	}
 }

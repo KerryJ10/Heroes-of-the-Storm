@@ -8,21 +8,26 @@
   background-color: #301934;
   overflow-x: hidden; }
   .sidenav h3 {
-    text-align: center;
-    color: #818181;
-    padding-top: 10%;
-    font-size: 24px;
-    height: 75px; }
+    height: 120px; }
+    .sidenav h3 img {
+      width: 250px; }
     .sidenav h3 a {
       padding: 0; }
     .sidenav h3 a:hover {
       cursor: pointer;
       color: #818181; }
   .sidenav a {
-    padding: 6px 8px 6px 40px;
+    padding: 6px 8px 6px 20px;
     text-decoration: none;
     font-size: 25px;
+    color: #cfcfcf;
+    display: block;
+    font-family: 'Acme'; }
+  .sidenav a:hover:not(:first-child) {
     color: #818181;
-    display: block; }
-  .sidenav a:hover {
-    color: pink; }
+    background-color: #241327; }
+    .sidenav a:hover:not(:first-child) .nav-list-icon {
+      color: #818181; }
+  .sidenav .nav-list-icon {
+    color: white;
+    margin-right: 20px; }

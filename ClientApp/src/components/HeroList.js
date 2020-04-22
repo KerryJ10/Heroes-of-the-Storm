@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Moment from 'react-moment';
 
 export class HeroList extends Component {
 	static displayName = HeroList.name;
@@ -14,36 +15,30 @@ export class HeroList extends Component {
 
 	static renderHeroesTable(heroes) {
 		return (
-			<div>
-				{heroes.map(hero =>
-					<div>
-						<div><img src={hero.icon} alt='Hero Icon' /></div>
-						<div>{hero.name}</div>
-					</div>
-				)}
-			</div>
-
 			//TODO Use for reference on Hero List table
-			//<table className='table table-striped' aria-labelledby="tabelLabel">
-			//	<thead>
-			//		<tr>
-			//			<th>Date</th>
-			//			<th>Temp. (C)</th>
-			//			<th>Temp. (F)</th>
-			//			<th>Summary</th>
-			//		</tr>
-			//	</thead>
-			//	<tbody>
-			//		{heroes.map(hero =>
-			//			<tr key={hero.date}>
-			//				<td><img src={hero.icon}></img></td>
-			//				<td>{hero.name}</td>
-			//				<td>{hero.temperatureF}</td>
-			//				<td>{hero.summary}</td>
-			//			</tr>
-			//		)}
-			//	</tbody>
-			//</table>
+			<table className='table table-striped' aria-labelledby="tabelLabel">
+				<thead>
+					<tr>
+						<th className='hero-name-th'>Hero</th>
+						<th>Type</th>
+						<th>Role</th>
+						<th>Release Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					{heroes.map(hero =>
+						<tr key={hero.date}>
+							<td className='hero-name-td'>
+								<div className='hero-name'>{hero.name}</div>
+								<img className='hero-icon' src={hero.icon} alt='Hero Icon' />
+							</td>
+							<td className='vertical-center hero-type-td'>{hero.type}</td>
+							<td className='vertical-center hero-role-td'>{hero.role}</td>
+							<td className='vertical-center'><Moment format='MM/DD/YYYY' date={hero.release_Date}/></td>
+						</tr>
+					)}
+				</tbody>
+			</table>
 		);
 	}
 
