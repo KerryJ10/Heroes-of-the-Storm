@@ -15,30 +15,45 @@ export class HeroList extends Component {
 
 	static renderHeroesTable(heroes) {
 		return (
-			//TODO Use for reference on Hero List table
-			<table className='table table-striped' aria-labelledby="tabelLabel">
-				<thead>
-					<tr>
-						<th className='hero-name-th'>Hero</th>
-						<th>Type</th>
-						<th>Role</th>
-						<th>Release Date</th>
-					</tr>
-				</thead>
-				<tbody>
-					{heroes.map(hero =>
-						<tr key={hero.date}>
-							<td className='hero-name-td'>
-								<div className='hero-name'>{hero.name}</div>
-								<img className='hero-icon' src={hero.icon} alt='Hero Icon' />
-							</td>
-							<td className='vertical-center hero-type-td'>{hero.type}</td>
-							<td className='vertical-center hero-role-td'>{hero.role}</td>
-							<td className='vertical-center'><Moment format='MM/DD/YYYY' date={hero.release_Date}/></td>
-						</tr>
-					)}
-				</tbody>
-			</table>
+			<div className='hero-container'>
+				{heroes.map(hero =>
+					<div>
+						<h1>{hero.group}</h1>
+						<div className='hero-card-container'>
+							{hero.children.map(h => 
+								<div className='hero'>
+									<div>{h.name}</div>
+									<div><img className='hero-icon' src={h.icon} alt='Hero Icon' /></div>
+								</div>
+
+							)}
+						</div>
+					</div>
+				)}
+			</div>
+			//<table className='table table-striped' aria-labelledby="tabelLabel">
+			//	<thead>
+			//		<tr>
+			//			<th className='hero-name-th'>Hero</th>
+			//			<th>Type</th>
+			//			<th>Role</th>
+			//			<th>Release Date</th>
+			//		</tr>
+			//	</thead>
+			//	<tbody>
+			//		{heroes.map(hero =>
+			//			<tr key={hero.name}>
+			//				<td className='hero-name-td'>
+			//					<div className='hero-name'>{hero.name}</div>
+			//					<img className='hero-icon' src={hero.icon} alt='Hero Icon' />
+			//				</td>
+			//				<td className='vertical-center hero-type-td'>{hero.type}</td>
+			//				<td className='vertical-center hero-role-td'>{hero.role}</td>
+			//				<td className='vertical-center'><Moment format='MM/DD/YYYY' date={hero.release_Date}/></td>
+			//			</tr>
+			//		)}
+			//	</tbody>
+			//</table>
 		);
 	}
 
@@ -63,7 +78,21 @@ export class HeroList extends Component {
 					'Accept': 'application/json'
 				}
 			});
+		
 		const data = await response.json();
-		this.setState({ heroList: data, loading: false });
+		
+		let groupedHeroes = data.reduce((r, e) => {
+
+			let group = e.name[0];
+			if (!r[group]) {
+				r[group] = { group, children: [e] }
+			} else {
+				r[group].children.push(e);
+			}
+			return r;
+		}, {});
+		let heroList = Object.values(groupedHeroes);
+
+		this.setState({ heroList: heroList, loading: false });
 	}
 }

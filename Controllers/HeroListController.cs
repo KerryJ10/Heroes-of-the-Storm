@@ -13,7 +13,7 @@ namespace Heroes.Controllers
 	public class HeroListController : ControllerBase
 	{
 		[HttpGet]
-		public IEnumerable<Hero> GetHeroList()
+		public List<Hero> GetHeroList()
 		{
 			var heroes = new List<Hero>();
 			//TODO find a better way of grabbing Hero Icons
@@ -22,7 +22,7 @@ namespace Heroes.Controllers
 			var dbCon = DbConnection.Instance();
 			dbCon.DatabaseName = "heroes";
 
-			if (!dbCon.IsConnect()) return heroes.OrderBy(h => h.Name).ToList();
+			if (!dbCon.IsConnect()) return new List<Hero>();
 			{
 				const string query = "SELECT * FROM heroes";
 				var cmd = new MySqlCommand(query, dbCon.Connection);
@@ -48,8 +48,7 @@ namespace Heroes.Controllers
 
 				reader.Close();
 			}
-
-			return heroes.OrderBy(h => h.Name).ToList(); ;
+			return heroes.OrderBy(h => h.Name).ToList();
 		}
 	}
 }

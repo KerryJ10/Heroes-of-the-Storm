@@ -20,3 +20,8 @@
     text-align: center; }
   .hero-list .vertical-center {
     line-height: 117px; }
+  .hero-list .hero-card-container {
+    display: flex;
+    flex-wrap: wrap; }
+  .hero-list .hero {
+    margin-right: 20px; }
