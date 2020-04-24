@@ -1,19 +1,25 @@
 ﻿/* HeroList
    ========================= */
 .hero-list {
-	padding: 20px;
+	/*padding: 20px;*/
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Safari */
 	-moz-user-select: none; /* Old versions of Firefox */
 	-ms-user-select: none; /* Internet Explorer/Edge */
 	user-select: none;
 
-	h1 {
+	h1:not(.hero-group) {
 		text-align: center;
+		
+		margin-right: 20px;
+		min-width: 312px;
 	}
 
 	.hero-group {
+		padding-left: 20px;
 		text-align: left;
+		color: #cfcfcf;
+		background-image: linear-gradient(to right, #301934, #e8e8e8);
 	}
 
 	span {
@@ -27,6 +33,7 @@
 		border-radius: 5px;
 		background-color: white;
 		font-family: 'Acme';
+		box-shadow: 2px 2px 3px 2px black;
 
 		.hero-card-title {
 			text-align: center;
@@ -52,11 +59,12 @@
 	}
 
 	.hero-container {
-		min-width: 300px; //TODO once cards are in place, increase min width
+		min-width: 500px;	
 	}
 
 	.hero-card-container {
 		display: flex;
 		flex-wrap: wrap;
+		padding-left: 20px;
 	}
 }
