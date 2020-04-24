@@ -65,11 +65,11 @@ code {
 
 .main-children {
   margin-left: 250px;
-  background-color: #ededed;
+  background-color: #e8e8e8;
   height: 100vh; }
 
 .main-background {
-  background-color: #ededed;
+  background-color: #e8e8e8;
   overflow-x: hidden;
   overflow-y: auto; }
 
@@ -82,27 +82,43 @@ code {
 /* HeroList
    ========================= */
 .hero-list {
-  padding: 20px; }
+  padding: 20px;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none; }
   .hero-list h1 {
     text-align: center; }
-  .hero-list .hero {
+  .hero-list .hero-group {
+    text-align: left; }
+  .hero-list span {
+    font-style: italic; }
+  .hero-list .hero-card {
     font-size: 18px;
-    padding-bottom: 20px; }
-    .hero-list .hero .hero-name {
-      font-family: 'Acme'; }
-  .hero-list .hero-name-td {
-    width: 150px;
-    text-align: center; }
-  .hero-list .hero-type-td {
-    width: 100px; }
-  .hero-list .hero-role-td {
-    width: 100px; }
-  .hero-list .hero-name-th {
-    text-align: center; }
+    padding: 0 10px 10px 10px;
+    margin: 0 10px 10px 0;
+    border-radius: 5px;
+    background-color: white;
+    font-family: 'Acme'; }
+    .hero-list .hero-card .hero-card-title {
+      text-align: center; }
+    .hero-list .hero-card .hero-info-list {
+      margin: 5px 0 0 0;
+      padding: 0 0 0 10px; }
+  .hero-list .hero-grid {
+    display: grid;
+    grid-template-columns: auto auto; }
+  .hero-list ul {
+    list-style-type: none; }
   .hero-list .vertical-center {
     line-height: 117px; }
+  .hero-list .hero-container {
+    min-width: 300px; }
   .hero-list .hero-card-container {
     display: flex;
     flex-wrap: wrap; }
-  .hero-list .hero {
-    margin-right: 20px; }

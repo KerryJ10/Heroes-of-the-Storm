@@ -17,13 +17,25 @@ export class HeroList extends Component {
 		return (
 			<div className='hero-container'>
 				{heroes.map(hero =>
-					<div>
-						<h1>{hero.group}</h1>
+					<div key={hero.group}>
+						<h1 className='hero-group'>{hero.group}</h1>
 						<div className='hero-card-container'>
-							{hero.children.map(h => 
-								<div className='hero'>
-									<div>{h.name}</div>
-									<div><img className='hero-icon' src={h.icon} alt='Hero Icon' /></div>
+							{hero.children.map(h =>
+								<div key={h.name} className='hero-card'>
+									<h3 className='hero-card-title'>{h.name}</h3>
+									<div className='hero-grid'>
+										<div>
+											<div><img className='hero-icon' src={h.icon} alt='Hero Icon' /></div>
+										</div>
+										<div>
+											<ul className='hero-info-list'>
+												<li><span>Type: </span>{h.type}</li>
+												<li><span>Role: </span>{h.role}</li>
+												<li><span>Release Date: </span><Moment format='MM/DD/YYYY' date={h.release_Date} /></li>
+											</ul>
+										</div>
+									</div>
+
 								</div>
 
 							)}
@@ -31,29 +43,6 @@ export class HeroList extends Component {
 					</div>
 				)}
 			</div>
-			//<table className='table table-striped' aria-labelledby="tabelLabel">
-			//	<thead>
-			//		<tr>
-			//			<th className='hero-name-th'>Hero</th>
-			//			<th>Type</th>
-			//			<th>Role</th>
-			//			<th>Release Date</th>
-			//		</tr>
-			//	</thead>
-			//	<tbody>
-			//		{heroes.map(hero =>
-			//			<tr key={hero.name}>
-			//				<td className='hero-name-td'>
-			//					<div className='hero-name'>{hero.name}</div>
-			//					<img className='hero-icon' src={hero.icon} alt='Hero Icon' />
-			//				</td>
-			//				<td className='vertical-center hero-type-td'>{hero.type}</td>
-			//				<td className='vertical-center hero-role-td'>{hero.role}</td>
-			//				<td className='vertical-center'><Moment format='MM/DD/YYYY' date={hero.release_Date}/></td>
-			//			</tr>
-			//		)}
-			//	</tbody>
-			//</table>
 		);
 	}
 
@@ -78,9 +67,9 @@ export class HeroList extends Component {
 					'Accept': 'application/json'
 				}
 			});
-		
+
 		const data = await response.json();
-		
+
 		let groupedHeroes = data.reduce((r, e) => {
 
 			let group = e.name[0];

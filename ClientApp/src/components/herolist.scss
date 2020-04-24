@@ -2,35 +2,49 @@
    ========================= */
 .hero-list {
 	padding: 20px;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none;
 
 	h1 {
 		text-align: center;
 	}
 
-	.hero {
-		font-size: 18px;
-		padding-bottom: 20px;
+	.hero-group {
+		text-align: left;
+	}
 
-		.hero-name {
-			font-family: 'Acme';
+	span {
+		font-style: italic;
+	}
+
+	.hero-card {
+		font-size: 18px;
+		padding: 0 10px 10px 10px;
+		margin: 0 10px 10px 0;
+		border-radius: 5px;
+		background-color: white;
+		font-family: 'Acme';
+
+		.hero-card-title {
+			text-align: center;
+		}
+
+		.hero-info-list {
+			margin: 5px 0 0 0;
+			padding: 0 0 0 10px;
 		}
 	}
 
-	.hero-name-td {
-		width: 150px;
-		text-align: center;
+	.hero-grid {
+		display: grid;
+		grid-template-columns: auto auto;
 	}
 
-	.hero-type-td {
-		width: 100px;
-	}
-
-	.hero-role-td {
-		width: 100px;
-	}
-
-	.hero-name-th {
-		text-align: center;
+	ul {
+		list-style-type: none;
 	}
 
 	.vertical-center {
@@ -38,14 +52,11 @@
 	}
 
 	.hero-container {
+		min-width: 300px; //TODO once cards are in place, increase min width
 	}
 
 	.hero-card-container {
 		display: flex;
 		flex-wrap: wrap;
-	}
-
-	.hero {
-		margin-right: 20px;
 	}
 }
