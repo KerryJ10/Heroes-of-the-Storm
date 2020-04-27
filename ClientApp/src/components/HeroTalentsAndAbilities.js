@@ -12,8 +12,7 @@ export class HeroTalentsAndAbilities extends Component {
 		};
 	}
 
-	 testFunc = () => {
-		debugger;
+	setContentCard = () => {
 		if (this.state.visibility) {
 			return (
 				<div>
@@ -30,7 +29,7 @@ export class HeroTalentsAndAbilities extends Component {
 	}
 
 	render() {
-		const contents = this.testFunc();
+		const contents = this.setContentCard();
 
 		return (
 			<div className='hero-t-a-container'>
