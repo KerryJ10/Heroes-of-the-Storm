@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
+import { Link } from 'react-router-dom';
 
 export class HeroList extends Component {
 	static displayName = HeroList.name;
@@ -14,30 +15,38 @@ export class HeroList extends Component {
 	}
 
 	static renderHeroesTable(heroes) {
+		const heroInfo = function (item) {
+			console.log('hero was clicked');
+			console.log(item);
+
+		}
+
+
 		return (
 			<div className='hero-container'>
 				{heroes.map(hero =>
 					<div key={hero.group}>
 						<h1 className='hero-group'>{hero.group}</h1>
-						<div className='hero-card-container'>
+						<div className='hero-group-container'>
 							{hero.children.map(h =>
-								<div key={h.name} className='hero-card'>
-									<h3 className='hero-card-title'>{h.name}</h3>
-									<div className='hero-grid'>
-										<div>
-											<div><img className='hero-icon' src={h.icon} alt='Hero Icon' /></div>
+								<Link to='/hero-info' key={h.name} className='hero-card-container'>
+									<div className='hero-card' onClick={() => heroInfo(h)}>
+										<h3 className='hero-card-title'>{h.name}</h3>
+										<div className='hero-grid'>
+											<div>
+												<div><img className='hero-icon' src={h.icon} alt='Hero Icon' /></div>
+											</div>
+											<div>
+												<ul className='hero-info-list'>
+													<li><span>Type: </span>{h.type}</li>
+													<li><span>Role: </span>{h.role}</li>
+													<li><span>Release Date: </span><Moment format='MM/DD/YYYY' date={h.release_Date} /></li>
+												</ul>
+											</div>
 										</div>
-										<div>
-											<ul className='hero-info-list'>
-												<li><span>Type: </span>{h.type}</li>
-												<li><span>Role: </span>{h.role}</li>
-												<li><span>Release Date: </span><Moment format='MM/DD/YYYY' date={h.release_Date} /></li>
-											</ul>
-										</div>
+
 									</div>
-
-								</div>
-
+								</Link>
 							)}
 						</div>
 					</div>
@@ -70,9 +79,8 @@ export class HeroList extends Component {
 
 		const data = await response.json();
 
-		let groupedHeroes = data.reduce((r, e) => {
-
-			let group = e.name[0];
+		const groupedHeroes = data.reduce((r, e) => {
+			const group = e.name[0];
 			if (!r[group]) {
 				r[group] = { group, children: [e] }
 			} else {
@@ -80,7 +88,8 @@ export class HeroList extends Component {
 			}
 			return r;
 		}, {});
-		let heroList = Object.values(groupedHeroes);
+
+		const heroList = Object.values(groupedHeroes);
 
 		this.setState({ heroList: heroList, loading: false });
 	}

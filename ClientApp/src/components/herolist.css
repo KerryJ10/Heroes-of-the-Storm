@@ -16,8 +16,7 @@
     margin-right: 20px;
     min-width: 312px; }
   .hero-list .hero-group {
-    padding-left: 20px;
-    text-align: left;
+    padding: 0 0 4px 20px;
     color: #cfcfcf;
     background-image: linear-gradient(to right, #301934, #e8e8e8); }
   .hero-list span {
@@ -29,7 +28,8 @@
     border-radius: 5px;
     background-color: white;
     font-family: 'Acme';
-    box-shadow: 2px 2px 3px 2px black; }
+    box-shadow: 2px 1px 2px 1px #301934;
+    border: 1px solid #301934; }
     .hero-list .hero-card .hero-card-title {
       text-align: center; }
     .hero-list .hero-card .hero-info-list {
@@ -44,7 +44,14 @@
     line-height: 117px; }
   .hero-list .hero-container {
     min-width: 500px; }
-  .hero-list .hero-card-container {
+  .hero-list .hero-group-container {
     display: flex;
     flex-wrap: wrap;
     padding-left: 20px; }
+    .hero-list .hero-group-container .hero-card {
+      color: #3d3d3d; }
+    .hero-list .hero-group-container .hero-card-container :hover {
+      cursor: pointer;
+      background-color: #a9a9a9; }
+  .hero-list a:hover {
+    text-decoration: none; }
