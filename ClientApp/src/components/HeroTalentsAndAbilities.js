@@ -16,13 +16,13 @@ export class HeroTalentsAndAbilities extends Component {
 		if (this.state.visibility) {
 			return (
 				<div>
-					<h1 style={{ visibility: this.state.visibility ? 'visible' : 'hidden' }}  >Abilities</h1>
+					<h1>Abilities</h1>
 				</div>
 			);
 		} else {
 			return (
 				<div>
-					<h1 style={{ visibility: !this.state.visibility ? 'visible' : 'hidden' }}>Talents</h1>
+					<h1>Talents</h1>
 				</div>
 			);
 		}
