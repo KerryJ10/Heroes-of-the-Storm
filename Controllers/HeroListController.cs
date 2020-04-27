@@ -41,6 +41,7 @@ namespace Heroes.Controllers
 						Attribute_ID = reader["attribute_id"].ToString(),
 						C_Hero_ID = reader["c_hero_id"].ToString(),
 						C_Unit_ID = reader["c_unit_id"].ToString(),
+						ID = (uint)reader["id"],
 						Icon = "Icons/heroes/" + heroIcon
 					};
 					heroes.Add(hero);

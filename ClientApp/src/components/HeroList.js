@@ -29,7 +29,7 @@ export class HeroList extends Component {
 						<h1 className='hero-group'>{hero.group}</h1>
 						<div className='hero-group-container'>
 							{hero.children.map(h =>
-								<Link to='/hero-info' key={h.name} className='hero-card-container'>
+								<Link to='/hero-info' to={{pathname: '/hero-info', hero: {name: h.name, id: h.id} }} key={h.name} className='hero-card-container'>
 									<div className='hero-card' onClick={() => heroInfo(h)}>
 										<h3 className='hero-card-title'>{h.name}</h3>
 										<div className='hero-grid'>

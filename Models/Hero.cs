@@ -5,6 +5,7 @@ namespace Heroes.Models
 {
 	public class Hero
 	{
+		public uint ID { get; set; }
 		public string Name { get; set; }
 		public string Short_Name { get; set; }
 		public string Role { get; set; }
