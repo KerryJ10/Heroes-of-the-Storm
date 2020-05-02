@@ -15,13 +15,6 @@ export class HeroList extends Component {
 	}
 
 	static renderHeroesTable(heroes) {
-		const heroInfo = function (item) {
-			console.log('hero was clicked');
-			console.log(item);
-
-		}
-
-
 		return (
 			<div className='hero-container'>
 				{heroes.map(hero =>
@@ -29,8 +22,14 @@ export class HeroList extends Component {
 						<h1 className='hero-group'>{hero.group}</h1>
 						<div className='hero-group-container'>
 							{hero.children.map(h =>
-								<Link to='/hero-info' to={{pathname: '/hero-info', hero: {name: h.name, id: h.id} }} key={h.name} className='hero-card-container'>
-									<div className='hero-card' onClick={() => heroInfo(h)}>
+								<Link to={{ pathname: '/hero-info', hero: { name: h.name, id: h.id } }}
+									onClick={() => {
+										localStorage.setItem('id', h.id);
+										localStorage.setItem('name', h.name);
+									}}
+									key={h.name}
+									className='hero-card-container'>
+									<div className='hero-card'>
 										<h3 className='hero-card-title'>{h.name}</h3>
 										<div className='hero-grid'>
 											<div>

@@ -9,8 +9,8 @@ namespace Heroes.Models
 		public string Description { get; set; }
 		public string Icon { get; set; }
 		public string Hotkey { get; set; }
-		public int Cooldown { get; set; }
-		public int Mana_Cost { get; set; }
+		public int? Cooldown { get; set; }
+		public int? Mana_Cost { get; set; }
 		public bool Trait { get; set; }
 	}
 }

@@ -31,7 +31,7 @@ namespace Heroes.Controllers
 				while (reader.Read())
 				{
 					var heroIcon = heroIcons.Find(h => h == reader["short_name"] + ".png");
-					var hero = new Hero()
+					heroes.Add(new Hero
 					{
 						Name = reader["name"].ToString(),
 						Short_Name = reader["short_name"].ToString(),
@@ -43,8 +43,7 @@ namespace Heroes.Controllers
 						C_Unit_ID = reader["c_unit_id"].ToString(),
 						ID = (uint)reader["id"],
 						Icon = "Icons/heroes/" + heroIcon
-					};
-					heroes.Add(hero);
+					});
 				}
 
 				reader.Close();

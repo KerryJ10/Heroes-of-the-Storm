@@ -140,3 +140,13 @@ code {
 .hero-t-a-container h1 {
   text-align: center;
   padding-top: 20px; }
+
+.hero-t-a-container .button-container {
+  text-align: center; }
+
+.hero-t-a-container .abilities-container {
+  background-color: gray; }
+
+.hero-t-a-container .abilities-info-container {
+  border: 1px solid black;
+  background-color: blue; }
