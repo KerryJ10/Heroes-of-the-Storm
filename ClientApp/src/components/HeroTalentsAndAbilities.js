@@ -18,7 +18,7 @@ export class HeroTalentsAndAbilities extends Component {
 		this.populateHero();
 	}
 
-	testFunc = () => {
+	setContent = () => {
 		if (Object.keys(this.state.heroInfo).length > 0) {
 			if (this.state.visibility) {
 				return (
@@ -42,7 +42,7 @@ export class HeroTalentsAndAbilities extends Component {
 	}
 
 	render() {
-		const content = this.testFunc();
+		const content = this.setContent();
 
 		return (
 			<div className='hero-t-a-container'>
