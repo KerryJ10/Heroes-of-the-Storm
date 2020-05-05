@@ -13,4 +13,5 @@
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=oidc/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=reactstrap/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=scss/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=tshelpers/@EntryIndexedValue">True</s:Boolean>
 	</wpf:ResourceDictionary>

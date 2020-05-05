@@ -1,4 +1,5 @@
 ﻿import React, { Component } from 'react';
+import { group } from '../tshelpers/helpers';
 
 export class HeroTalentsAndAbilities extends Component {
 	static hero = {};
@@ -18,14 +19,30 @@ export class HeroTalentsAndAbilities extends Component {
 		this.populateHero();
 	}
 
-	setContent = () => {
-		if (Object.keys(this.state.heroInfo).length > 0) {
+	showTrait(isTrait) {
+		return !isTrait ? 'hidden' : '';
+	}
+
+	hasMana(manaCost) {
+		return manaCost !== null ? manaCost : 'None';
+	}
+
+	setContent = (heroInfo) => {
+		if (Object.keys(heroInfo).length > 0) {
 			if (this.state.visibility) {
 				return (
 					<div className='abilities-container'>
 						<h1>Abilities</h1>
-						<div className='abilities-info-container'>
-						</div>
+						{heroInfo.abilities.map(h =>
+							<div className='abilities-info-container' key={h.name}>
+								<div><span>Title: </span>{h.title}</div>
+								<div className={this.showTrait(h.trait)}>Trait</div>
+								<div><span>Cooldown: </span>{h.cooldown}</div>
+								<div><span>Hotkey: </span>{h.hotkey}</div>
+								<div><span>Mana Cost: </span>{this.hasMana(h.mana_Cost)}</div>
+								<div><span>Description: </span>{h.description}</div>
+							</div>
+						)}
 					</div>
 				);
 			} else {
@@ -37,22 +54,21 @@ export class HeroTalentsAndAbilities extends Component {
 			}
 		}
 		return (
-			<div></div>
+			<div className='loading-placeholder'>...Loading</div>
 		);
 	}
 
 	render() {
-		const content = this.setContent();
-
 		return (
-			<div className='hero-t-a-container'>
+			Object.keys(this.state.heroInfo).length > 0 ? <div className='hero-t-a-container'>
 				<h1>{this.state.name}</h1>
 				<div className='button-container'>
 					<button style={{ backgroundColor: this.state.visibility ? 'gray' : 'white' }} onClick={() => this.setState({ visibility: true })}>Abilities</button>
 					<button style={{ backgroundColor: !this.state.visibility ? 'gray' : 'white' }} onClick={() => this.setState({ visibility: false })}>Talents</button>
 				</div>
-				{content}
-			</div>
+				{this.setContent(this.state.heroInfo)}
+			</div> : <div className='loading-placeholder'>...Loading</div>
+
 		);
 	}
 
@@ -69,6 +85,10 @@ export class HeroTalentsAndAbilities extends Component {
 			});
 
 		const data = await response.json();
+
+		data.talents = Object.values(group(data.talents, 'level'));
+		//debugger;
+
 		this.setState({ heroInfo: data, loading: false });
 	}
 }

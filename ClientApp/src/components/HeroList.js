@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
+import { group } from '../tshelpers/helpers';
 
 export class HeroList extends Component {
 	static displayName = HeroList.name;
@@ -77,19 +78,8 @@ export class HeroList extends Component {
 			});
 
 		const data = await response.json();
-
-		const groupedHeroes = data.reduce((r, e) => {
-			const group = e.name[0];
-			if (!r[group]) {
-				r[group] = { group, children: [e] }
-			} else {
-				r[group].children.push(e);
-			}
-			return r;
-		}, {});
-
-		const heroList = Object.values(groupedHeroes);
-
+		const heroList = Object.values(group(data, 'name'));
+		
 		this.setState({ heroList: heroList, loading: false });
 	}
 }
