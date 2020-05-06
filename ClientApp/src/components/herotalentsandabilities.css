@@ -5,9 +5,13 @@
 .hero-t-a-container .button-container {
   text-align: center; }
 
-.hero-t-a-container .abilities-container {
+.hero-t-a-container .info-container {
   background-color: gray; }
 
-.hero-t-a-container .abilities-info-container {
+.hero-t-a-container .ability-info-container {
   border: 1px solid black;
   background-color: lightgreen; }
+
+.hero-t-a-container .talent-info-container {
+  border: 1px solid black;
+  background-color: lightblue; }

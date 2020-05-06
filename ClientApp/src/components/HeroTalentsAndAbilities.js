@@ -28,27 +28,40 @@ export class HeroTalentsAndAbilities extends Component {
 	}
 
 	setContent = (heroInfo) => {
+		debugger;
 		if (Object.keys(heroInfo).length > 0) {
 			if (this.state.visibility) {
 				return (
-					<div className='abilities-container'>
+					<div className='info-container'>
 						<h1>Abilities</h1>
-						{heroInfo.abilities.map(h =>
-							<div className='abilities-info-container' key={h.name}>
-								<div><span>Title: </span>{h.title}</div>
-								<div className={this.showTrait(h.trait)}>Trait</div>
-								<div><span>Cooldown: </span>{h.cooldown}</div>
-								<div><span>Hotkey: </span>{h.hotkey}</div>
-								<div><span>Mana Cost: </span>{this.hasMana(h.mana_Cost)}</div>
-								<div><span>Description: </span>{h.description}</div>
+						{heroInfo.abilities.map(a =>
+							<div className='ability-info-container' key={a.name}>
+								<div><span>Title: </span>{a.title}</div>
+								<div className={this.showTrait(a.trait)}>Trait</div>
+								<div><span>Cooldown: </span>{a.cooldown}</div>
+								<div><span>Hotkey: </span>{a.hotkey}</div>
+								<div><span>Mana Cost: </span>{this.hasMana(a.mana_Cost)}</div>
+								<div><span>Description: </span>{a.description}</div>
 							</div>
 						)}
 					</div>
 				);
 			} else {
 				return (
-					<div>
+					<div className='info-container'>
 						<h1>Talents</h1>
+						{heroInfo.talents.map(t => 
+							<div className='talent-info-container' key={t.group}>
+								<div>Level: {t.group}</div>
+								
+								{t.children.map(c => 
+									<div className='talent-container' key={c.id}>
+										<div>Title: {c.title}</div>
+									</div>
+										)}
+								
+							</div>
+							)}
 					</div>
 				);
 			}
@@ -87,7 +100,6 @@ export class HeroTalentsAndAbilities extends Component {
 		const data = await response.json();
 
 		data.talents = Object.values(group(data.talents, 'level'));
-		//debugger;
 
 		this.setState({ heroInfo: data, loading: false });
 	}
